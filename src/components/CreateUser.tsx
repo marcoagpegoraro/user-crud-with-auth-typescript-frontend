@@ -1,7 +1,6 @@
 import { useState } from 'react'
 import { Button, TextField, Grid, Paper, Typography } from '@mui/material';
 import showNotification from '../utils/Notification';
-import getUsersService from '../services/getUsersService';
 
 export default function CreateUser() {
   const [formData, setFormData] = useState({
