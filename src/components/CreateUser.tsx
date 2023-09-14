@@ -44,7 +44,7 @@ export default function CreateUser() {
     formDataToSend.append('photo', formData.photo);
 
 
-    const response = await fetch('http://localhost:3000/api/v1/users', {
+    const response = await fetch(import.meta.env.API_URL+'/api/v1/users', {
       method: 'POST',
       body: formDataToSend,
       headers: {authorization: token}

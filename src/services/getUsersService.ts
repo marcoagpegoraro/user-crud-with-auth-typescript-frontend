@@ -1,7 +1,7 @@
 import showNotification from "../utils/Notification"
 
 export default async function getUsersService(token, page){
-    const response = await fetch(`http://localhost:3000/api/v1/users?page=${page}`,{
+    const response = await fetch(import.meta.env.API_URL+`/api/v1/users?page=${page}`,{
         method: 'GET',
         headers: {authorization: token}
       })

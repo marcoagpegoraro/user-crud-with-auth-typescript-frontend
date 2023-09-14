@@ -5,7 +5,7 @@ export default function GetToken() {
   const [token, setToken] = useState(localStorage.getItem("token"))
 
   const handleGetToken = async () => {
-    const response = await fetch('http://localhost:3000/api/v1/token', {
+    const response = await fetch(import.meta.env.API_URL+'/api/v1/token', {
       method: 'GET',
     });
 
