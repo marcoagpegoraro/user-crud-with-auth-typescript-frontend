@@ -1,11 +1,12 @@
 import { Button, Card, Typography } from "@mui/material";
 import { useState } from "react";
+import Constants from "../utils/Constants";
 
 export default function GetToken() {
   const [token, setToken] = useState(localStorage.getItem("token"))
 
   const handleGetToken = async () => {
-    const response = await fetch('https://user-registration-api-c2252abd7f78.herokuapp.com/api/v1/token', {
+    const response = await fetch(Constants.API_URL + '/api/v1/token', {
       method: 'GET',
     });
 

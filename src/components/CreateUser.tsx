@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Button, TextField, Grid, Paper, Typography } from '@mui/material';
 import showNotification from '../utils/Notification';
+import Constants from '../utils/Constants';
 
 export default function CreateUser() {
   const [formData, setFormData] = useState({
@@ -44,7 +45,7 @@ export default function CreateUser() {
     formDataToSend.append('photo', formData.photo);
 
 
-    const response = await fetch('https://user-registration-api-c2252abd7f78.herokuapp.com/api/v1/users', {
+    const response = await fetch(Constants.API_URL + '/api/v1/users', {
       method: 'POST',
       body: formDataToSend,
       headers: {authorization: token}

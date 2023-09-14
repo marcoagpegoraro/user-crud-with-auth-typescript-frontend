@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Table, TableContainer, TableHead, TableBody, TableRow, TableCell, Paper, Button } from '@mui/material';
 import showNotification from '../utils/Notification';
 import getUsersService from '../services/getUsersService';
@@ -18,8 +18,16 @@ export default function ListUser({users, setUsers}) {
 
     const newUsers = await getUsersService(token, page)
 
-    setUsers([...newUsers, ...users])
-    setPage((prev) => prev + 1)
+  
+    setUsers([...new Map([...newUsers, ...users].map(item =>
+      [item['id'], item])).values()])
+
+      console.log(newUsers)
+      console.log(newUsers.length)
+
+    if(newUsers.length == 6){
+      setPage((prev) => prev + 1)
+    }
   }
 
   return <>
