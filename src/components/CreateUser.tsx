@@ -44,7 +44,7 @@ export default function CreateUser() {
     formDataToSend.append('photo', formData.photo);
 
 
-    const response = await fetch(import.meta.env.API_URL+'/api/v1/users', {
+    const response = await fetch('https://user-registration-api-c2252abd7f78.herokuapp.com/api/v1/users', {
       method: 'POST',
       body: formDataToSend,
       headers: {authorization: token}
